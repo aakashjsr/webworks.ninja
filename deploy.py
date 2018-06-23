@@ -12,6 +12,13 @@ def upload_files(path):
 		for file in files:
 			full_path = os.path.join(subdir, file)
 			mime_type = mime.guess_type(full_path)
+
+			try:
+				if full_path.index(".git") >=0:
+					break
+			except:
+				pass
+
 			
 			print("Uploading {} ".format(full_path[len(path):]))
 			s3.upload_file(
