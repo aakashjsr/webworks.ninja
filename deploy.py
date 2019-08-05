@@ -3,7 +3,7 @@ import boto3, os, mimetypes as mime
 
 def upload_files(path):
 	bucket_name = "webworks.ninja"
-	session = boto3.Session(profile_name='aakash')
+	session = boto3.Session(profile_name='default')
 	
 	s3 = session.client('s3')
 	print("s3 client initialised.")
